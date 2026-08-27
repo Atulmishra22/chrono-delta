@@ -89,15 +89,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const signInWithGoogle = async () => {
     setLoading(true);
     try {
-      const res = await firebaseGoogleSignIn();
-      if (res.user) {
-        await fetchProfile(res.user);
-      }
+      await firebaseGoogleSignIn();
     } catch (err: any) {
       console.error("Google sign in failed:", err);
-      throw err;
-    } finally {
       setLoading(false);
+      throw err;
     }
   };
 
