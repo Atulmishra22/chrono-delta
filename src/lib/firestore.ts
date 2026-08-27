@@ -30,11 +30,92 @@ export const fromTimestamp = (ts: any): Date => {
 const LOCAL_PROJECTS_KEY = "timeflow_local_projects";
 const LOCAL_TASKS_KEY = "timeflow_local_tasks";
 
+function getInitialDemoProjects(): Project[] {
+  const now = new Date();
+  const start = new Date(now.getTime() - 15 * 86400000);
+  const end = new Date(now.getTime() + 25 * 86400000);
+
+  return [
+    {
+      id: "prj_demo_alpha",
+      userId: "demo_operator_01",
+      title: "Build AI Portfolio",
+      description: "Next.js 16 + Firebase schedule intelligence architecture",
+      startDate: start,
+      endDate: end,
+      progress: 45,
+      category: "Work",
+      status: "active",
+      createdAt: start,
+      updatedAt: now,
+    },
+    {
+      id: "prj_demo_beta",
+      userId: "demo_operator_01",
+      title: "System Architecture Review",
+      description: "Data-dense HUD metrics and precision progress tracking",
+      startDate: new Date(now.getTime() - 5 * 86400000),
+      endDate: new Date(now.getTime() + 15 * 86400000),
+      progress: 75,
+      category: "Work",
+      status: "active",
+      createdAt: start,
+      updatedAt: now,
+    },
+  ];
+}
+
+function getInitialDemoTasks(): Task[] {
+  const now = new Date();
+  return [
+    {
+      id: "task_demo_1",
+      userId: "demo_operator_01",
+      projectId: "prj_demo_alpha",
+      title: "Data Model Architecture & Schema",
+      startDate: new Date(now.getTime() - 15 * 86400000),
+      endDate: new Date(now.getTime() - 5 * 86400000),
+      progress: 100,
+      status: "completed",
+      createdAt: now,
+      updatedAt: now,
+    },
+    {
+      id: "task_demo_2",
+      userId: "demo_operator_01",
+      projectId: "prj_demo_alpha",
+      title: "Frontend Component Library",
+      startDate: new Date(now.getTime() - 4 * 86400000),
+      endDate: new Date(now.getTime() + 5 * 86400000),
+      progress: 70,
+      status: "active",
+      createdAt: now,
+      updatedAt: now,
+    },
+    {
+      id: "task_demo_3",
+      userId: "demo_operator_01",
+      projectId: "prj_demo_alpha",
+      title: "API Integration & Telemetry Listeners",
+      startDate: new Date(now.getTime() - 2 * 86400000),
+      endDate: new Date(now.getTime() - 1 * 86400000),
+      progress: 20,
+      status: "active",
+      createdAt: now,
+      updatedAt: now,
+    },
+  ];
+}
+
 function getLocalProjects(): Project[] {
   if (typeof window === "undefined") return [];
   try {
     const raw = localStorage.getItem(LOCAL_PROJECTS_KEY);
-    if (!raw) return [];
+    if (!raw) {
+      const demo = getInitialDemoProjects();
+      saveLocalProjects(demo);
+      return demo;
+    }
     return JSON.parse(raw).map((p: any) => ({
       ...p,
       startDate: new Date(p.startDate),
@@ -42,8 +123,8 @@ function getLocalProjects(): Project[] {
       createdAt: new Date(p.createdAt),
       updatedAt: new Date(p.updatedAt),
     }));
-  } catch (e) {
-    return [];
+  } catch {
+    return getInitialDemoProjects();
   }
 }
 
@@ -56,7 +137,11 @@ function getLocalTasks(): Task[] {
   if (typeof window === "undefined") return [];
   try {
     const raw = localStorage.getItem(LOCAL_TASKS_KEY);
-    if (!raw) return [];
+    if (!raw) {
+      const demo = getInitialDemoTasks();
+      saveLocalTasks(demo);
+      return demo;
+    }
     return JSON.parse(raw).map((t: any) => ({
       ...t,
       startDate: t.startDate ? new Date(t.startDate) : null,
@@ -64,8 +149,8 @@ function getLocalTasks(): Task[] {
       createdAt: new Date(t.createdAt),
       updatedAt: new Date(t.updatedAt),
     }));
-  } catch (e) {
-    return [];
+  } catch {
+    return getInitialDemoTasks();
   }
 }
 

@@ -1,9 +1,11 @@
 import { Project, ProjectComputed, ProjectWithComputed, ScheduleStatus } from "@/types/project";
 
-export function getTimeProgress(startDate: Date, endDate: Date): number {
+export function getTimeProgress(startDate: Date | string, endDate: Date | string): number {
+  if (!startDate || !endDate) return 0;
   const start = new Date(startDate).getTime();
   const end = new Date(endDate).getTime();
   const now = new Date().getTime();
+  if (isNaN(start) || isNaN(end)) return 0;
   const total = end - start;
   if (total <= 0) return 100;
   const elapsed = now - start;
@@ -12,17 +14,17 @@ export function getTimeProgress(startDate: Date, endDate: Date): number {
   return Math.min(100, Math.max(0, Math.round((elapsed / total) * 100)));
 }
 
-export function getScheduleDiff(workProgress: number, timeProgress: number): number {
-  return Math.round(workProgress - timeProgress);
+export function getScheduleDiff(workProgress: number = 0, timeProgress: number = 0): number {
+  return Math.round((workProgress || 0) - (timeProgress || 0));
 }
 
-export function getScheduleStatus(diff: number): ScheduleStatus {
+export function getScheduleStatus(diff: number = 0): ScheduleStatus {
   if (diff >= 10) return "ahead";
   if (diff <= -10) return "behind";
   return "on-track";
 }
 
-export function getTimeRemaining(endDate: Date): {
+export function getTimeRemaining(endDate: Date | string): {
   days: number;
   hours: number;
   minutes: number;
@@ -30,8 +32,14 @@ export function getTimeRemaining(endDate: Date): {
   isOverdue: boolean;
   totalMs: number;
 } {
+  if (!endDate) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0, isOverdue: false, totalMs: 0 };
+  }
   const now = new Date().getTime();
   const end = new Date(endDate).getTime();
+  if (isNaN(end)) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0, isOverdue: false, totalMs: 0 };
+  }
   const diff = end - now;
 
   if (diff <= 0) {
@@ -56,9 +64,11 @@ export function getTimeRemaining(endDate: Date): {
   };
 }
 
-export function getDaysRemaining(endDate: Date): number {
+export function getDaysRemaining(endDate: Date | string): number {
+  if (!endDate) return 0;
   const now = new Date().getTime();
   const end = new Date(endDate).getTime();
+  if (isNaN(end)) return 0;
   const diff = end - now;
   return Math.ceil(diff / 86400000);
 }
