@@ -31,7 +31,7 @@ export function PomodoroPanel() {
   const progress = ((25 * 60 - secondsLeft) / (25 * 60)) * 100;
 
   return (
-    <div className="flex flex-col justify-between rounded-[2px] border border-outline-variant/80 bg-surface-container-lowest p-6 shadow-xs h-full">
+    <div className="flex flex-col justify-between rounded-[2px] border border-outline-variant/80 bg-surface-container-lowest p-5 sm:p-6 shadow-xs h-full">
       <div className="flex items-center justify-between pb-4 border-b border-outline-variant/40">
         <div className="flex items-center gap-2">
           <span className="material-symbols-outlined text-[18px] text-primary">timer</span>

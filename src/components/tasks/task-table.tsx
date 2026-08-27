@@ -96,7 +96,7 @@ export function TaskTable({
 
       {/* Table Content */}
       <div className="overflow-x-auto">
-        <table className="w-full text-left text-xs">
+        <table className="w-full min-w-[620px] text-left text-xs">
           <thead className="bg-surface-container font-mono text-[11px] font-bold uppercase tracking-wider text-on-surface-variant border-b border-outline-variant/50">
             <tr>
               <th className="py-3 px-5">Task Name</th>

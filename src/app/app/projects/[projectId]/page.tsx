@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { use } from "react";
 import Link from "next/link";
@@ -106,8 +106,8 @@ export default function ProjectDetailsPage({ params }: PageProps) {
           </div>
 
           {/* Quick Progress Adjuster */}
-          <div className="flex items-center gap-3 bg-surface-container-lowest p-3 rounded-[2px] border border-outline-variant">
-            <span className="text-[11px] font-mono font-bold uppercase text-on-surface-variant">
+          <div className="flex items-center justify-between sm:justify-start gap-3 bg-surface-container-lowest p-3 rounded-[2px] border border-outline-variant w-full sm:w-auto">
+            <span className="text-[11px] font-mono font-bold uppercase text-on-surface-variant whitespace-nowrap">
               Quick Progress:
             </span>
             <input
@@ -117,7 +117,7 @@ export default function ProjectDetailsPage({ params }: PageProps) {
               step="5"
               value={project.progress}
               onChange={(e) => handleProgressChange(Number(e.target.value))}
-              className="w-32 h-1.5 bg-surface-container-high rounded-lg appearance-none cursor-pointer"
+              className="flex-1 sm:w-32 h-1.5 bg-surface-container-high rounded-lg appearance-none cursor-pointer"
             />
             <span className="font-mono text-xs font-bold text-primary w-8 text-right">
               {project.progress}%

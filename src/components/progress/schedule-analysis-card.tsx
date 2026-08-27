@@ -16,7 +16,7 @@ export function ScheduleAnalysisCard({ project, tasks }: ScheduleAnalysisCardPro
   const completedTasksCount = tasks.filter((t) => t.progress === 100 || t.status === "completed").length;
 
   return (
-    <div className="flex flex-col justify-between rounded-[2px] border border-outline-variant/80 bg-surface-container-lowest p-6 lg:p-7 shadow-xs">
+    <div className="flex flex-col justify-between rounded-[2px] border border-outline-variant/80 bg-surface-container-lowest p-5 sm:p-6 lg:p-7 shadow-xs">
       {/* Header */}
       <div className="flex items-center justify-between pb-5 border-b border-outline-variant/40">
         <div className="flex items-center gap-2.5">

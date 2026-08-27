@@ -48,7 +48,7 @@ export default function SettingsPage() {
         </div>
 
         {/* Profile Card */}
-        <div className="rounded-[2px] border border-outline-variant bg-surface-container-lowest p-7 shadow-xs">
+        <div className="rounded-[2px] border border-outline-variant bg-surface-container-lowest p-5 sm:p-7 shadow-xs">
           <div className="flex items-center gap-2 pb-4 border-b border-outline-variant/40">
             <span className="material-symbols-outlined text-primary text-[20px]">person</span>
             <h2 className="text-sm font-bold uppercase tracking-wider text-primary font-mono">
@@ -138,7 +138,7 @@ export default function SettingsPage() {
         </div>
 
         {/* Account Controls */}
-        <div className="rounded-[2px] border border-outline-variant bg-surface-container-lowest p-7 shadow-xs">
+        <div className="rounded-[2px] border border-outline-variant bg-surface-container-lowest p-5 sm:p-7 shadow-xs">
           <div className="flex items-center gap-2 pb-4 border-b border-outline-variant/40">
             <span className="material-symbols-outlined text-primary text-[20px]">manage_accounts</span>
             <h2 className="text-sm font-bold uppercase tracking-wider text-primary font-mono">

@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/contexts/auth-context";
+import { useUIStore } from "@/stores/ui-store";
 import { cn } from "@/lib/utils";
 
 interface NavItem {
@@ -21,32 +22,68 @@ const navItems: NavItem[] = [
 export function Sidebar() {
   const pathname = usePathname();
   const { userProfile, logout } = useAuth();
+  const { sidebarOpen, setSidebarOpen } = useUIStore();
+
+  const handleNavClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      setSidebarOpen(false);
+    }
+  };
 
   return (
-    <aside className="fixed left-0 top-0 z-40 flex h-screen w-[280px] flex-col bg-primary text-on-primary">
-      {/* Header / Brand */}
-      <div className="flex flex-col gap-3 p-6 border-b border-primary-container/40">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-secondary text-on-secondary font-mono font-bold text-lg">
-            TF
-          </div>
-          <div className="flex flex-col">
-            <span className="text-xl font-bold tracking-tight text-white leading-tight">TimeFlow</span>
-            <span className="text-[10px] font-bold tracking-widest text-primary-fixed-dim uppercase">
-              Command Center
-            </span>
-          </div>
-        </div>
+    <>
+      {/* Mobile Backdrop Overlay */}
+      {sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-xs transition-opacity lg:hidden"
+        />
+      )}
 
-        {/* New Entry CTA */}
-        <Link
-          href="/app/projects/new"
-          className="mt-2 flex items-center justify-center gap-2 w-full rounded-[2px] bg-secondary px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-on-secondary shadow-sm hover:brightness-110 active:scale-[0.99] transition-all"
-        >
-          <span className="material-symbols-outlined text-[16px]">add</span>
-          <span>New Project</span>
-        </Link>
-      </div>
+      {/* Main Sidebar Drawer */}
+      <aside
+        className={cn(
+          "fixed top-0 bottom-0 left-0 z-50 flex h-full w-[280px] flex-col bg-primary text-on-primary shadow-2xl lg:shadow-none transition-transform duration-300 ease-in-out",
+          sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+        )}
+      >
+        {/* Header / Brand */}
+        <div className="flex flex-col gap-3 p-5 sm:p-6 border-b border-primary-container/40">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-sm bg-secondary text-on-secondary font-mono font-bold text-base sm:text-lg">
+                TF
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg sm:text-xl font-bold tracking-tight text-white leading-tight">
+                  TimeFlow
+                </span>
+                <span className="text-[10px] font-bold tracking-widest text-primary-fixed-dim uppercase">
+                  Command Center
+                </span>
+              </div>
+            </div>
+
+            {/* Mobile Close Button */}
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="lg:hidden p-1.5 text-primary-fixed-dim hover:text-white transition-colors"
+              title="Close Menu"
+            >
+              <span className="material-symbols-outlined text-[20px]">close</span>
+            </button>
+          </div>
+
+          {/* New Entry CTA */}
+          <Link
+            href="/app/projects/new"
+            onClick={handleNavClick}
+            className="mt-2 flex items-center justify-center gap-2 w-full rounded-[2px] bg-secondary px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-on-secondary shadow-sm hover:brightness-110 active:scale-[0.99] transition-all"
+          >
+            <span className="material-symbols-outlined text-[16px]">add</span>
+            <span>New Project</span>
+          </Link>
+        </div>
 
       {/* Navigation Items */}
       <nav className="flex flex-1 flex-col gap-1 px-3 py-6">
@@ -59,6 +96,7 @@ export function Sidebar() {
             <Link
               key={item.name}
               href={item.href}
+              onClick={handleNavClick}
               className={cn(
                 "flex items-center gap-3.5 rounded-[2px] px-3.5 py-3 text-xs font-semibold tracking-wider uppercase transition-colors",
                 isActive
@@ -113,6 +151,7 @@ export function Sidebar() {
           </button>
         </div>
       </div>
-    </aside>
+      </aside>
+    </>
   );
 }

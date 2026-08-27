@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -55,7 +55,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4 py-12">
-      <div className="w-full max-w-md rounded-[2px] border border-outline-variant bg-surface-container-lowest p-8 shadow-sm">
+      <div className="w-full max-w-md rounded-[2px] border border-outline-variant bg-surface-container-lowest p-5 sm:p-8 shadow-sm">
         {/* Header */}
         <div className="flex flex-col items-center text-center">
           <div className="flex h-12 w-12 items-center justify-center rounded-sm bg-primary text-white font-mono font-bold text-xl mb-4">

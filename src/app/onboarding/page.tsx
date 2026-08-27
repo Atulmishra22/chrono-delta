@@ -97,8 +97,8 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4 sm:p-8">
-      <div className="w-full max-w-xl rounded-[2px] border border-outline-variant bg-surface-container-lowest p-8 shadow-sm">
+    <div className="flex min-h-screen items-center justify-center bg-background p-3 sm:p-8">
+      <div className="w-full max-w-xl rounded-[2px] border border-outline-variant bg-surface-container-lowest p-5 sm:p-8 shadow-sm">
         {/* Step Indicator */}
         <div className="flex items-center justify-between pb-6 mb-6 border-b border-outline-variant/40 font-mono text-xs text-on-surface-variant">
           <span className="font-bold text-primary">INITIAL SETUP PROTOCOL</span>

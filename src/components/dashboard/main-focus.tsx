@@ -37,7 +37,7 @@ export function MainFocus({ project }: MainFocusProps) {
   const isBehind = project.scheduleStatus === "behind";
 
   return (
-    <div className="relative overflow-hidden rounded-[2px] border border-outline-variant/80 bg-surface-container-lowest p-6 lg:p-7 shadow-xs">
+    <div className="relative overflow-hidden rounded-[2px] border border-outline-variant/80 bg-surface-container-lowest p-5 sm:p-6 lg:p-7 shadow-xs">
       {/* Subtle indicator accent */}
       <div
         className={`absolute top-0 left-0 right-0 h-1 ${

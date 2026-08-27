@@ -28,7 +28,7 @@ export function Header({ criticalAlertsCount = 0 }: HeaderProps) {
   }, []);
 
   return (
-    <header className="flex items-center justify-between pb-6 border-b border-outline-variant/60">
+    <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 sm:pb-6 border-b border-outline-variant/60">
       <div>
         <h1 className="text-2xl lg:text-3xl font-bold tracking-tight text-primary">
           {getGreeting()}.

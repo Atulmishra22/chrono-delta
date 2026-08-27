@@ -63,14 +63,14 @@ export function CountdownTimer({
 
   return (
     <div className={cn("flex flex-col", className)}>
-      <div className="flex items-baseline gap-2 font-mono text-4xl lg:text-5xl font-bold tracking-tight text-primary">
+      <div className="flex items-baseline gap-1 sm:gap-2 font-mono text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-primary">
         <span>{d}</span>
-        <span className="text-outline-variant text-3xl">:</span>
+        <span className="text-outline-variant text-lg sm:text-2xl lg:text-3xl">:</span>
         <span>{h}</span>
-        <span className="text-outline-variant text-3xl">:</span>
+        <span className="text-outline-variant text-lg sm:text-2xl lg:text-3xl">:</span>
         <span>{m}</span>
-        <span className="text-outline-variant text-3xl">:</span>
-        <span className="text-primary-container text-2xl font-medium">{s}</span>
+        <span className="text-outline-variant text-lg sm:text-2xl lg:text-3xl">:</span>
+        <span className="text-primary-container text-base sm:text-xl lg:text-2xl font-medium">{s}</span>
       </div>
       <div className="grid grid-cols-4 pt-1 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant/80">
         <span>Days</span>

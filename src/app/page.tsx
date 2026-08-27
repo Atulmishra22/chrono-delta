@@ -6,12 +6,12 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background text-on-surface">
       {/* Sticky Header */}
-      <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-outline-variant/60 bg-white/95 px-6 lg:px-12 backdrop-blur-xs">
-        <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-primary text-white font-mono font-bold text-base">
+      <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-outline-variant/60 bg-white/95 px-4 sm:px-6 lg:px-12 backdrop-blur-xs">
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-sm bg-primary text-white font-mono font-bold text-sm sm:text-base">
             TF
           </div>
-          <span className="text-xl font-bold tracking-tight text-primary">TimeFlow</span>
+          <span className="text-lg sm:text-xl font-bold tracking-tight text-primary">TimeFlow</span>
         </div>
 
         <nav className="hidden md:flex items-center gap-8 font-mono text-xs font-bold uppercase tracking-widest text-on-surface-variant">
@@ -20,16 +20,16 @@ export default function LandingPage() {
           <a href="#intelligence" className="hover:text-primary transition-colors">Intelligence</a>
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/login"
-            className="rounded-[2px] px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary hover:bg-surface-container transition-colors font-mono"
+            className="rounded-[2px] px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs font-bold uppercase tracking-wider text-primary hover:bg-surface-container transition-colors font-mono"
           >
             Login
           </Link>
           <Link
             href="/login"
-            className="flex items-center gap-1 rounded-[2px] bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wider text-white hover:brightness-110 active:scale-[0.99] transition-all font-mono"
+            className="flex items-center gap-1 rounded-[2px] bg-primary px-3 sm:px-4 py-1.5 sm:py-2 text-xs font-bold uppercase tracking-wider text-white hover:brightness-110 active:scale-[0.99] transition-all font-mono"
           >
             <span>Get Started</span>
             <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
@@ -38,7 +38,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section with HUD Card */}
-      <section className="relative overflow-hidden border-b border-outline-variant/60 py-16 lg:py-24 px-6 lg:px-12">
+      <section className="relative overflow-hidden border-b border-outline-variant/60 py-10 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
         <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column */}
           <div className="lg:col-span-6 flex flex-col gap-6">
@@ -128,24 +128,24 @@ export default function LandingPage() {
       </section>
 
       {/* Problem Comparison Section */}
-      <section id="problem" className="py-16 lg:py-24 px-6 lg:px-12 bg-surface-container-low border-b border-outline-variant/60">
+      <section id="problem" className="py-10 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-12 bg-surface-container-low border-b border-outline-variant/60">
         <div className="mx-auto max-w-[1200px]">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
             <div className="text-xs font-bold uppercase tracking-widest text-secondary font-mono mb-2">
               The Fundamental Flaw
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-primary">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-primary">
               Stop guessing. Start knowing.
             </h2>
-            <p className="text-sm text-on-surface-variant mt-3">
+            <p className="text-xs sm:text-sm text-on-surface-variant mt-3">
               Traditional productivity tools track tasks in isolation without measuring their velocity
               against non-negotiable time limits.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* Standard Trackers */}
-            <div className="rounded-[2px] border border-outline-variant/60 bg-white p-8 opacity-80">
+            <div className="rounded-[2px] border border-outline-variant/60 bg-white p-6 sm:p-8 opacity-80">
               <div className="flex items-center gap-2 text-outline-variant font-mono text-xs font-bold uppercase mb-4">
                 <span className="material-symbols-outlined text-lg">close</span>
                 <span>Standard Trackers</span>
@@ -167,7 +167,7 @@ export default function LandingPage() {
             </div>
 
             {/* TimeFlow Architecture */}
-            <div className="rounded-[2px] border-2 border-primary bg-white p-8 shadow-sm">
+            <div className="rounded-[2px] border-2 border-primary bg-white p-6 sm:p-8 shadow-sm">
               <div className="flex items-center gap-2 text-secondary font-mono text-xs font-bold uppercase mb-4">
                 <span className="material-symbols-outlined text-lg">check_circle</span>
                 <span>TimeFlow Intelligence</span>
@@ -192,14 +192,14 @@ export default function LandingPage() {
       </section>
 
       {/* Protocol Sequence (3 Steps) */}
-      <section id="protocol" className="py-16 lg:py-24 px-6 lg:px-12 border-b border-outline-variant/60">
+      <section id="protocol" className="py-10 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-outline-variant/60">
         <div className="mx-auto max-w-[1200px]">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-4">
             <div>
               <div className="text-xs font-bold uppercase tracking-widest text-secondary font-mono mb-2">
                 PROTOCOL SEQUENCE
               </div>
-              <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-primary">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-primary">
                 Three steps to command.
               </h2>
             </div>
@@ -209,7 +209,7 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-[2px] border border-outline-variant bg-surface-container-lowest p-7 flex flex-col justify-between">
+            <div className="rounded-[2px] border border-outline-variant bg-surface-container-lowest p-5 sm:p-7 flex flex-col justify-between">
               <div>
                 <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-primary text-white font-mono font-bold text-sm mb-6">
                   01
@@ -224,7 +224,7 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="rounded-[2px] border border-outline-variant bg-surface-container-lowest p-7 flex flex-col justify-between">
+            <div className="rounded-[2px] border border-outline-variant bg-surface-container-lowest p-5 sm:p-7 flex flex-col justify-between">
               <div>
                 <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-primary text-white font-mono font-bold text-sm mb-6">
                   02
@@ -239,7 +239,7 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="rounded-[2px] border border-outline-variant bg-surface-container-lowest p-7 flex flex-col justify-between">
+            <div className="rounded-[2px] border border-outline-variant bg-surface-container-lowest p-5 sm:p-7 flex flex-col justify-between">
               <div>
                 <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-secondary text-white font-mono font-bold text-sm mb-6">
                   03
@@ -258,13 +258,13 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 lg:px-12 bg-white flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-on-surface-variant border-t border-outline-variant/40">
+      <footer className="py-6 sm:py-8 px-4 sm:px-6 lg:px-12 bg-white flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-on-surface-variant border-t border-outline-variant/40">
         <div className="flex items-center gap-2">
           <span className="font-bold text-primary">TimeFlow Intelligence</span>
           <span>&copy; {new Date().getFullYear()}</span>
         </div>
-        <div className="flex items-center gap-6">
-          <span>PRECISION TIME INSTRUMENT</span>
+        <div className="flex items-center gap-4 sm:gap-6">
+          <span className="hidden sm:inline">PRECISION TIME INSTRUMENT</span>
           <Link href="/login" className="text-primary hover:underline font-bold">
             COMMAND CENTER &rarr;
           </Link>

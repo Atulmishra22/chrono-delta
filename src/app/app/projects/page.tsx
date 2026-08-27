@@ -73,12 +73,12 @@ export default function ProjectsPage() {
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex items-center border border-outline-variant rounded-[2px] bg-surface-container overflow-hidden font-mono text-xs">
+          <div className="flex items-center border border-outline-variant rounded-[2px] bg-surface-container overflow-x-auto max-w-full font-mono text-xs">
             {(["all", "active", "completed", "archived"] as TabFilter[]).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setFilter(tab)}
-                className={`px-3.5 py-1.5 font-bold uppercase transition-colors ${
+                className={`px-3 sm:px-3.5 py-1.5 font-bold uppercase whitespace-nowrap shrink-0 transition-colors ${
                   filter === tab
                     ? "bg-primary text-white"
                     : "text-on-surface-variant hover:text-primary"
