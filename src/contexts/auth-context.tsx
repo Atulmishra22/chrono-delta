@@ -60,6 +60,40 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
+    // ─── Error Shield ─────────────────────────────────────────────────────────
+    // Browser extensions (performance monitors, screen recorders, DevTools
+    // helpers) inject PerformanceObserver scripts that crash on startTime/
+    // reportAllChanges. These are NOT app errors — suppress them cleanly.
+    const handleError = (event: ErrorEvent) => {
+      const msg = event?.message || "";
+      const stack = event?.error?.stack || "";
+      const isExtensionError =
+        stack.includes("chrome-extension://") ||
+        stack.includes("moz-extension://") ||
+        msg.includes("startTime") ||
+        msg.includes("reportAllChanges");
+      if (isExtensionError) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    };
+    const handleRejection = (event: PromiseRejectionEvent) => {
+      const msg = event?.reason?.message || "";
+      const stack = event?.reason?.stack || "";
+      const isExtensionError =
+        stack.includes("chrome-extension://") ||
+        stack.includes("moz-extension://") ||
+        msg.includes("startTime") ||
+        msg.includes("reportAllChanges");
+      if (isExtensionError) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    };
+    window.addEventListener("error", handleError, true);
+    window.addEventListener("unhandledrejection", handleRejection, true);
+    // ─────────────────────────────────────────────────────────────────────────
+
     // Check for demo user first in localStorage
     const savedDemo = typeof window !== "undefined" ? localStorage.getItem(DEMO_STORAGE_KEY) : null;
     if (savedDemo) {
@@ -83,17 +117,26 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
       setLoading(false);
     });
-    return () => unsub();
+    return () => {
+      unsub();
+      window.removeEventListener("error", handleError, true);
+      window.removeEventListener("unhandledrejection", handleRejection, true);
+    };
   }, []);
 
   const signInWithGoogle = async () => {
-    setLoading(true);
     try {
-      await firebaseGoogleSignIn();
+      const res = await firebaseGoogleSignIn();
+      if (res?.user) {
+        setLoading(true);
+        setFirebaseUser(res.user);
+        await fetchProfile(res.user);
+      }
     } catch (err: any) {
       console.error("Google sign in failed:", err);
-      setLoading(false);
       throw err;
+    } finally {
+      setLoading(false);
     }
   };
 

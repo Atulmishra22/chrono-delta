@@ -22,10 +22,10 @@ export default function LoginPage() {
   }, [firebaseUser, userProfile, loading, router]);
 
   const handleGoogleSignIn = async () => {
-    setError(null);
-    setIsConfigError(false);
-    setSubmitting(true);
     try {
+      setSubmitting(true);
+      setError(null);
+      setIsConfigError(false);
       await signInWithGoogle();
     } catch (err: any) {
       const code = err?.code || "";
@@ -33,6 +33,11 @@ export default function LoginPage() {
       if (code.includes("configuration-not-found") || msg.includes("CONFIGURATION_NOT_FOUND")) {
         setIsConfigError(true);
         setError("Google Sign-In is not enabled yet in your Firebase Console.");
+      } else if (code.includes("popup-blocked") || msg.includes("popup-blocked")) {
+        setError("Pop-up was blocked by your browser. Please allow pop-ups for localhost:3000 in your browser address bar.");
+      } else if (code.includes("popup-closed-by-user")) {
+        // User closed the popup window intentionally, no error needed
+        setError(null);
       } else {
         setError(msg || "Failed to sign in with Google.");
       }

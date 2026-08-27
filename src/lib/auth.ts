@@ -1,8 +1,6 @@
 import {
   GoogleAuthProvider,
   signInWithPopup,
-  signInWithRedirect,
-  getRedirectResult,
   signOut,
   onAuthStateChanged,
   User as FirebaseUser,
@@ -15,11 +13,7 @@ googleProvider.setCustomParameters({
 });
 
 export const signInWithGoogle = async () => {
-  return signInWithRedirect(auth, googleProvider);
-};
-
-export const checkRedirectResult = async () => {
-  return getRedirectResult(auth);
+  return signInWithPopup(auth, googleProvider);
 };
 
 export const logout = async () => {
