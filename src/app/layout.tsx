@@ -64,6 +64,9 @@ export const metadata: Metadata = {
     description:
       "Visual time management platform comparing elapsed time against actual work progress.",
   },
+  verification: {
+    google: "r20-10sHlCqH-V2elXofp34X2NIHYXRKqOyWj3dq39w",
+  },
 };
 
 export default function RootLayout({
@@ -74,6 +77,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
+        <meta
+          name="google-site-verification"
+          content="r20-10sHlCqH-V2elXofp34X2NIHYXRKqOyWj3dq39w"
+        />
         <link
           rel="icon"
           type="image/svg+xml"
