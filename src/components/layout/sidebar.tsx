@@ -52,11 +52,11 @@ export function Sidebar() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-sm bg-secondary text-on-secondary font-mono font-bold text-base sm:text-lg">
-                TF
+                CD
               </div>
               <div className="flex flex-col">
                 <span className="text-lg sm:text-xl font-bold tracking-tight text-white leading-tight">
-                  TimeFlow
+                  ChronoDelta
                 </span>
                 <span className="text-[10px] font-bold tracking-widest text-primary-fixed-dim uppercase">
                   Command Center

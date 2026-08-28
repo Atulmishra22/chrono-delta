@@ -26,7 +26,7 @@ const AuthContext = createContext<AuthContextType>({
   refreshProfile: async () => {},
 });
 
-const DEMO_STORAGE_KEY = "timeflow_demo_user";
+const DEMO_STORAGE_KEY = "chronodelta_demo_user";
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [firebaseUser, setFirebaseUser] = useState<any>(null);
@@ -146,7 +146,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const demoUser = {
         uid: "demo_operator_01",
         displayName: "Flight Lead / Operator",
-        email: "operator@timeflow.internal",
+        email: "operator@chronodelta.internal",
         photoURL: "",
       };
       if (typeof window !== "undefined") {

@@ -110,10 +110,10 @@ export default function OnboardingPage() {
           <div className="flex flex-col gap-6">
             <div>
               <h2 className="text-2xl font-bold text-primary tracking-tight">
-                Welcome to TimeFlow, {firebaseUser?.displayName || "Operator"}.
+                Welcome to ChronoDelta, {firebaseUser?.displayName || "Operator"}.
               </h2>
               <p className="mt-2 text-xs text-on-surface-variant leading-relaxed">
-                TimeFlow provides real-time mathematical schedule intelligence. In the next 60 seconds,
+                ChronoDelta provides real-time mathematical schedule intelligence. In the next 60 seconds,
                 we will configure your primary project constraint and set up your initial execution pipeline.
               </p>
             </div>

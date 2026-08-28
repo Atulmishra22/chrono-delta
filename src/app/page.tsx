@@ -9,9 +9,9 @@ export default function LandingPage() {
       <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-outline-variant/60 bg-white/95 px-4 sm:px-6 lg:px-12 backdrop-blur-xs">
         <div className="flex items-center gap-2.5 sm:gap-3">
           <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-sm bg-primary text-white font-mono font-bold text-sm sm:text-base">
-            TF
+            CD
           </div>
-          <span className="text-lg sm:text-xl font-bold tracking-tight text-primary">TimeFlow</span>
+          <span className="text-lg sm:text-xl font-bold tracking-tight text-primary">ChronoDelta</span>
         </div>
 
         <nav className="hidden md:flex items-center gap-8 font-mono text-xs font-bold uppercase tracking-widest text-on-surface-variant">
@@ -52,7 +52,7 @@ export default function LandingPage() {
             </h1>
 
             <p className="text-base lg:text-lg text-on-surface-variant max-w-xl leading-relaxed">
-              Standard task managers tell you what to do. TimeFlow calculates mathematical variance
+              Standard task managers tell you what to do. ChronoDelta calculates mathematical variance
               between elapsed time and actual work completed to alert you before deadlines fail.
             </p>
 
@@ -166,11 +166,11 @@ export default function LandingPage() {
               </ul>
             </div>
 
-            {/* TimeFlow Architecture */}
+            {/* ChronoDelta Architecture */}
             <div className="rounded-[2px] border-2 border-primary bg-white p-6 sm:p-8 shadow-sm">
               <div className="flex items-center gap-2 text-secondary font-mono text-xs font-bold uppercase mb-4">
                 <span className="material-symbols-outlined text-lg">check_circle</span>
-                <span>TimeFlow Intelligence</span>
+                <span>ChronoDelta Intelligence</span>
               </div>
               <ul className="space-y-4 text-xs text-on-surface">
                 <li className="flex items-start gap-2.5">
@@ -246,7 +246,7 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-base font-bold text-primary font-mono uppercase">Analyze Delta</h3>
                 <p className="text-xs text-on-surface-variant mt-2 leading-relaxed">
-                  TimeFlow instantly surfaces schedule variance to tell you if you are Ahead, On Track, or Behind.
+                  ChronoDelta instantly surfaces schedule variance to tell you if you are Ahead, On Track, or Behind.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-outline-variant/30 font-mono text-[10px] font-bold text-secondary uppercase">
@@ -260,7 +260,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="py-6 sm:py-8 px-4 sm:px-6 lg:px-12 bg-white flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-on-surface-variant border-t border-outline-variant/40">
         <div className="flex items-center gap-2">
-          <span className="font-bold text-primary">TimeFlow Intelligence</span>
+          <span className="font-bold text-primary">ChronoDelta Intelligence</span>
           <span>&copy; {new Date().getFullYear()}</span>
         </div>
         <div className="flex items-center gap-4 sm:gap-6">

@@ -64,9 +64,9 @@ export default function LoginPage() {
         {/* Header */}
         <div className="flex flex-col items-center text-center">
           <div className="flex h-12 w-12 items-center justify-center rounded-sm bg-primary text-white font-mono font-bold text-xl mb-4">
-            TF
+            CD
           </div>
-          <h1 className="text-2xl font-bold tracking-tight text-primary">TimeFlow</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-primary">ChronoDelta</h1>
           <p className="mt-1 text-xs text-on-surface-variant font-mono uppercase tracking-wider">
             Precision Time Management & Schedule Intelligence
           </p>
@@ -141,7 +141,7 @@ export default function LoginPage() {
 
         <div className="mt-8 border-t border-outline-variant/40 pt-4 text-center">
           <p className="text-[11px] font-mono text-on-surface-variant">
-            By accessing TimeFlow, you agree to precision schedule monitoring.
+            By accessing ChronoDelta, you agree to precision schedule monitoring.
           </p>
         </div>
       </div>

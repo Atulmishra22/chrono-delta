@@ -49,9 +49,9 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           </button>
           <div className="flex items-center gap-2">
             <div className="flex h-7 w-7 items-center justify-center rounded-sm bg-secondary text-white font-mono font-bold text-xs">
-              TF
+              CD
             </div>
-            <span className="font-bold tracking-tight text-sm">TimeFlow</span>
+            <span className="font-bold tracking-tight text-sm">ChronoDelta</span>
           </div>
         </div>
       </div>
